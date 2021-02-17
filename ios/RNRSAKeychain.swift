@@ -63,10 +63,22 @@ class RNRSAKeychain: NSObject {
     }
     
     @objc
-    func generateCSR(_ keyTag: String, CN: String, withAlgorithm: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+    func generateCSR(
+        _ keyTag: String,
+        CN: String,
+        country: String,
+        organizationName: String,
+        organizationUnitName: String,
+        email: String,
+        stateOrProvinceName: String,
+        localityName: String,
+        withAlgorithm: String,
+        resolver resolve: RCTPromiseResolveBlock,
+        rejecter reject: RCTPromiseRejectBlock
+    ) -> Void {
         
         let rsa_ec = RSAECNative(keyTag: keyTag)
-        let csr = rsa_ec.generateCSR(CN: CN, withAlgorithm: withAlgorithm)
+        let csr = rsa_ec.generateCSR(CN: CN, country: country, organizationName: organizationName, organizationUnitName: organizationUnitName, email: email, stateOrProvinceName: stateOrProvinceName, localityName: localityName, withAlgorithm: withAlgorithm)
         if(csr != nil){
             let keys = ["csr": csr]
             resolve(keys)

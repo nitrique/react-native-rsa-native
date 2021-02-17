@@ -46,7 +46,7 @@ declare module 'react-native-rsa-native' {
 	namespace RSAKeychain {
 		export function generate(keyTag: string): Promise<PublicKey>;
 		export function generateEC(keyTag: string): Promise<PublicKey>;
-		export function generateCSR(keyTag: string, CN: string, signature?: TypeCrypto): Promise<CSRKey>;
+		export function generateCSR(keyTag: string, CN: string, country: string, organizationName: string, organizationUnitName: string, email: string, stateOrProvinceName: string, localityName: string, signature?: TypeCrypto): Promise<CSRKey>;
 		export function generateKeys(keyTag: string, keySize: number): Promise<PublicKey>;
 		export function generateCSRWithEC(cn: String,keyTag: string, keySize: number): Promise<PublicKey & CSRKey>;
 		export function deletePrivateKey(keyTag: string): Promise<boolean>;

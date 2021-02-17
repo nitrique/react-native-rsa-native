@@ -345,8 +345,8 @@ public class RSA {
     }
 
     @TargetApi(18)
-    public void generateCSR(String commonName, String withAlgorithm, Context context) throws IOException, OperatorCreationException {
-        this.csr = CsrHelper.generateCSR(this.publicKey, commonName, keyTag, withAlgorithm);
+    public void generateCSR(String commonName, String country, String organizationName, String organizationUnitName, String email, String stateOrProvinceName, String localityName, String withAlgorithm, Context context) throws IOException, OperatorCreationException {
+        this.csr = CsrHelper.generateCSR(this.publicKey, commonName, country, organizationName, organizationUnitName, email, stateOrProvinceName, localityName, keyTag, withAlgorithm);
     }
 
     @TargetApi(18)
